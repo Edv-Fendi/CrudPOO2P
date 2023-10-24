@@ -1,4 +1,4 @@
-package model.dao.dao;
+package model.dao;
 
 public class DaoFactory {
 
