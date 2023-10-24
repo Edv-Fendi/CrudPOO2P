@@ -1,4 +1,4 @@
-package model.dao.entidades;
+package model.entities;
 
 public class Porte {
     private int id_Porte;

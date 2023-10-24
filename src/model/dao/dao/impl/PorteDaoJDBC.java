@@ -11,7 +11,6 @@ import db.DbException;
 import db.DbIntegrityException;
 import model.dao.PorteDaoJDBC;
 import model.dao.PorteDao;
-import model.dao.entidades.Porte;
 import model.entities.Porte;
 
 public class PorteDaoJDBC  implements PorteDao {
