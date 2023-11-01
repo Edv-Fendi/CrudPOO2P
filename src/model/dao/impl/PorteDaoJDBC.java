@@ -1,3 +1,4 @@
+package model.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,11 +10,10 @@ import java.util.List;
 import db.DB;
 import db.DbException;
 import db.DbIntegrityException;
-import model.dao.PorteDaoJDBC;
 import model.dao.PorteDao;
 import model.entities.Porte;
 
-public class PorteDaoJDBC  implements PorteDao {
+public class PorteDaoJDBC implements PorteDao {
     private Connection conn;
 
     public PorteDaoJDBC (Connection conn) {
@@ -26,13 +26,13 @@ public class PorteDaoJDBC  implements PorteDao {
         ResultSet rs = null;
         try {
             st = conn.prepareStatement(
-                    "SELECT * FROM porte WHERE Id = ?");
+                    "SELECT * FROM porte WHERE id_Porte = ?");
             st.setInt(1, id);
             rs = st.executeQuery();
             if (rs.next()) {
                 Porte obj = new Porte();
-                obj.setId(rs.getInt("Id"));
-                obj.setName(rs.getString("Name"));
+                obj.setId_Porte(rs.getInt("id_Porte"));
+                obj.setNome(rs.getString("nome"));
                 return obj;
             }
             return null;
@@ -52,15 +52,15 @@ public class PorteDaoJDBC  implements PorteDao {
         ResultSet rs = null;
         try {
             st = conn.prepareStatement(
-                    "SELECT * FROM porte ORDER BY Name");
+                    "SELECT * FROM porte ORDER BY nome");
             rs = st.executeQuery();
 
             List<Porte> list = new ArrayList<>();
 
             while (rs.next()) {
                 Porte obj = new Porte();
-                obj.setId(rs.getInt("Id"));
-                obj.setName(rs.getString("Name"));
+                obj.setId_Porte(rs.getInt("id_Porte"));
+                obj.setNome(rs.getString("nome"));
                 list.add(obj);
             }
             return list;
@@ -79,13 +79,13 @@ public class PorteDaoJDBC  implements PorteDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement(
-                    "INSERT INTO department " +
-                            "(Name) " +
+                    "INSERT INTO porte " +
+                            "(nome) " +
                             "VALUES " +
                             "(?)",
                     Statement.RETURN_GENERATED_KEYS);
 
-            st.setString(1, obj.getName());
+            st.setString(1, obj.getNome());
 
             int rowsAffected = st.executeUpdate();
 
@@ -93,7 +93,7 @@ public class PorteDaoJDBC  implements PorteDao {
                 ResultSet rs = st.getGeneratedKeys();
                 if (rs.next()) {
                     int id = rs.getInt(1);
-                    obj.setId(id);
+                    obj.setId_Porte(id);
                 }
             }
             else {
@@ -113,12 +113,12 @@ public class PorteDaoJDBC  implements PorteDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement(
-                    "UPDATE department " +
-                            "SET Name = ? " +
-                            "WHERE Id = ?");
+                    "UPDATE porte " +
+                            "SET nome = ? " +
+                            "WHERE id_Porte = ?");
 
-            st.setString(1, obj.getName());
-            st.setInt(2, obj.getId());
+            st.setString(1, obj.getNome());
+            st.setInt(2, obj.getId_Porte());
 
             st.executeUpdate();
         }
@@ -135,7 +135,7 @@ public class PorteDaoJDBC  implements PorteDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement(
-                    "DELETE FROM department WHERE Id = ?");
+                    "DELETE FROM porte WHERE id_Porte = ?");
 
             st.setInt(1, id);
 

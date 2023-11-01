@@ -1,13 +1,10 @@
 package application;
 
-import java.util.List;
 import java.util.Scanner;
 
-import model.dao.DaoFactory;
-import model.dao.EixoDao;
-import model.entities.Eixo;
+import model.entities.Porte;
 
-public class CrudEixo extends Funcoes {
+public class CrudPorte extends Funcoes {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
@@ -22,19 +19,20 @@ public class CrudEixo extends Funcoes {
 
 		switch (escolha){
 			case 0:
-				findIdEixo();
+				findIdPorte();
 				break;
 			case 1:
-				findAllEixo();
+				findAllPorte();
+
 				break;
 			case 2:
-				insertEixo();
+				insertPorte();
 				break;
 			case 3:
-				deleteEixo();
+				deletePorte();
 				break;
 			case 4:
-				updateEixo();
+				updatePorte();
 				break;
 			default:
 				System.out.println("escolha invalida");
