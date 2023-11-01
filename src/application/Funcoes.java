@@ -59,9 +59,10 @@ public class Funcoes {
         PorteDao porteDao = DaoFactory.createPorteDao();
         System.out.println("\n=== TEST 3: insert =======");
         System.out.println("digite o codigo");
-        int cod= Integer.parseInt(sc.next());
+        int cod = Integer.parseInt(sc.next());
         System.out.println("digite a descricao");
-        String desc= sc.nextLine();
+        sc.nextLine();
+        String desc = sc.nextLine();
         Porte newPorte = new Porte(cod,desc);
         porteDao.insert(newPorte);
         System.out.println("Inserted! New id: " + newPorte.getId_Porte());

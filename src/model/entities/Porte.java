@@ -8,6 +8,14 @@ public class Porte {
 
     }
 
+    @Override
+    public String toString() {
+        return "Porte{" +
+                "id_Porte=" + id_Porte +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
+
     public Porte(int id_Porte, String nome) {
         this.id_Porte = id_Porte;
         this.nome = nome;
