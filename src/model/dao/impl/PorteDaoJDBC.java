@@ -52,7 +52,7 @@ public class PorteDaoJDBC implements PorteDao {
         ResultSet rs = null;
         try {
             st = conn.prepareStatement(
-                    "SELECT * FROM porte ORDER BY nome");
+                    "SELECT * FROM porte ");
             rs = st.executeQuery();
 
             List<Porte> list = new ArrayList<>();
