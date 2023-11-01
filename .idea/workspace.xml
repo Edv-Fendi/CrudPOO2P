@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ec20a3b-a39a-4e36-98f2-da4d599ca6b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/application/CrudEndereco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/dao/EnderecoDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/dao/impl/EnderecoDaoJDBC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/entities/Endereco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_1_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoTeste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoTeste.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/CrudPorte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/CrudPorte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/Funcoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Funcoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/DaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/PorteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PorteDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +26,14 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -50,14 +64,34 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/GabrieldeLimaFurini/Downloads/mysql-connector-j-8.1.0/mysql-connector-j-8.1.0.jar",
+    "last_opened_file_path": "C:/CrudPOO2P",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/ProjetoTeste/src/Main.java",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\CrudPOO2P" />
+      <recent name="C:\CrudPOO2P\src" />
+      <recent name="C:\CrudPOO2P\src\application" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="database.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/database.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,15 +101,52 @@
       <option name="presentableId" value="Default" />
       <updated>1697583373665</updated>
       <workItem from="1697583374708" duration="1000" />
+      <workItem from="1698791044076" duration="1828000" />
+      <workItem from="1698854615324" duration="7571000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/feat/ramo" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

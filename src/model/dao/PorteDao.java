@@ -13,5 +13,4 @@ public interface PorteDao {
     void deleteById(Integer id);
     List<Porte> findAll();
 
-
 }

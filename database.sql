@@ -1,5 +1,5 @@
-create database projeto;
-use projeto;
+create database projetoOOP;
+use projetoOOP;
 
 create table ramo(
      id_Ramo int auto_increment primary key,
