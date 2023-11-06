@@ -1,5 +1,7 @@
 package application;
+import model.dao.EmpresaDao;
 import model.dao.EnderecoDao;
+import model.entities.Empresa;
 import model.entities.Endereco;
 import model.entities.Porte;
 import model.dao.DaoFactory;
@@ -178,6 +180,110 @@ public class Funcoes {
         System.out.print("Enter id for delete test: ");
         int id = sc.nextInt();
         enderecoDao.deleteById(id);
+        System.out.println("Delete completed");
+        sc.close();
+    }
+
+
+
+    static void updateEmpresa(){
+        Scanner sc = new Scanner(System.in);
+        EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
+        System.out.println("\n=== TEST 4: update =======");
+        System.out.println("informe o id que deseja atualizar");
+        Empresa empresa = empresaDao.findById(sc.nextInt());
+        System.out.println("Digite o Email: ");
+        sc.nextLine();
+        empresa.setEmail(sc.nextLine());
+        System.out.println("Digite a Razao Social: ");
+        sc.nextLine();
+        empresa.setRazao_social(sc.nextLine());
+        System.out.println("Digite o Nome Fantasia: ");
+        sc.nextLine();
+        empresa.setNome_fantasia(sc.nextLine());
+        System.out.println("Digite o CNPJ");
+        sc.nextLine();
+        empresa.setCnpj(sc.nextLine());
+        System.out.println("Digite a Quantidade de Funcionarios");
+        sc.nextLine();
+        empresa.setQtd_funcionarios(sc.nextInt());
+        System.out.println("Digite o Telefone");
+        sc.nextLine();
+        empresa.setTelefone(sc.nextLine());
+        System.out.println("Digite a Pontuacao");
+        sc.nextLine();
+        empresa.setPontuacao(sc.nextInt());
+        empresaDao.update(empresa);
+        System.out.println("Update completed");
+        sc.close();
+
+    }
+
+    static void findIdEmpresa(){
+        Scanner sc = new Scanner(System.in);
+
+        EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
+
+        System.out.println("=== TEST 1: findById =======");
+        System.out.println("informe o id a ser exibido");
+        Empresa empresa = empresaDao.findById(sc.nextInt());
+        System.out.println(empresa);
+        sc.close();
+
+    }
+
+    static void findAllEmpresa(){
+        EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
+
+        System.out.println("\n=== TEST 2: findAll =======");
+        List<Empresa> list = empresaDao.findAll();
+        for (Empresa empresa : list) {
+            System.out.println(empresa);
+        }
+
+    }
+
+    static void insertEmpresa(){
+        Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
+
+        EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
+
+        System.out.println("\n=== TEST 3: insert =======");
+        System.out.println("Digite a Email: ");
+        String email = sc.nextLine();
+        System.out.println("Digite a Razao Social: ");
+        String razao_social = sc.nextLine();
+        System.out.println("Digite o Nome Fantasia: ");
+        String nome_fantasia = sc.nextLine();
+        System.out.println("Digite o CNPJ");
+        String cnpj = sc.nextLine();
+        System.out.println("Digite a Quantidade de Funcionarios");
+        int qtd_funcionarios = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Digite o Telefone");
+        String telefone = sc.nextLine();
+        System.out.println("Digite a Pontuacao");
+        int pontuacao = sc.nextInt();
+        sc.nextLine();
+
+        Empresa newEmpresa = new Empresa(null,email,razao_social,nome_fantasia,cnpj,qtd_funcionarios, telefone, pontuacao);
+        empresaDao.insert(newEmpresa);
+
+        System.out.println("Inserted! New id: " + newEmpresa.getId_Empresa());
+        sc.close();
+        sc2.close();
+    }
+
+    static void deleteEmpresa(){
+        Scanner sc = new Scanner(System.in);
+
+        EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
+
+        System.out.println("\n=== TEST 5: delete =======");
+        System.out.print("Enter id for delete test: ");
+        int id = sc.nextInt();
+        empresaDao.deleteById(id);
         System.out.println("Delete completed");
         sc.close();
     }
