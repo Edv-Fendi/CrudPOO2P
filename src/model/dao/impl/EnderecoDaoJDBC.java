@@ -130,10 +130,10 @@ public class EnderecoDaoJDBC implements EnderecoDao {
                     "UPDATE endereco " +
                             "SET Cidade = ?, " +
                             "Numero = ?, " +
-                            "Estado = ?," +
-                            "Bairro = ?," +
-                            "CEP = ?," +
-                            "Complemento = ?," +
+                            "Estado = ?, " +
+                            "Bairro = ?, " +
+                            "CEP = ?, " +
+                            "Complemento = ? " + // Removed the comma
                             "WHERE Id_Endereco = ?");
 
             st.setString(1, obj.getCidade());
@@ -142,6 +142,8 @@ public class EnderecoDaoJDBC implements EnderecoDao {
             st.setString(4, obj.getBairro());
             st.setString(5, obj.getCep());
             st.setString(6, obj.getComplemento());
+            st.setInt(7, obj.getId_Endereco()); // Assuming the ID is an integer
+
             st.executeUpdate();
         }
         catch (SQLException e) {

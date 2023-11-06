@@ -85,34 +85,36 @@ public class Funcoes {
         sc.close();
     }
 
-    static void updateEndereco(){
+    static void updateEndereco() {
         Scanner sc = new Scanner(System.in);
         EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
         System.out.println("\n=== TEST 4: update =======");
-        System.out.println("informe o id que deseja atualizar");
-        Endereco endereco = enderecoDao.findById(sc.nextInt());
-        System.out.println("Digite a Cidade: ");
-        sc.nextLine();
+        System.out.println("Informe o ID que deseja atualizar:");
+        int id = sc.nextInt();
+        sc.nextLine(); // Consuma a nova linha após a entrada do número
+        Endereco endereco = enderecoDao.findById(id);
+
+        System.out.println("Digite a Cidade:");
         endereco.setCidade(sc.nextLine());
-        System.out.println("Digite o Numero: ");
-        sc.nextLine();
+
+        System.out.println("Digite o Numero:");
         endereco.setNumero(sc.nextLine());
-        System.out.println("Digite o Estado: ");
-        sc.nextLine();
+
+        System.out.println("Digite o Estado:");
         endereco.setEstado(sc.nextLine());
-        System.out.println("Digite o Bairro");
-        sc.nextLine();
+
+        System.out.println("Digite o Bairro:");
         endereco.setBairro(sc.nextLine());
-        System.out.println("Digite o CEP");
-        sc.nextLine();
+
+        System.out.println("Digite o CEP:");
         endereco.setCep(sc.nextLine());
-        System.out.println("Digite o Complemento");
-        sc.nextLine();
+
+        System.out.println("Digite o Complemento:");
         endereco.setComplemento(sc.nextLine());
+
         enderecoDao.update(endereco);
         System.out.println("Update completed");
         sc.close();
-
     }
 
     static void findIdEndereco(){
