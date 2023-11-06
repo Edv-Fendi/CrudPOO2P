@@ -41,7 +41,7 @@ public class Funcoes {
         System.out.println("informe o id a ser exibido");
         Porte dep = porteDao.findById(sc.nextInt());
         System.out.println(dep);
-        sc.close();
+
 
     }
 
@@ -69,7 +69,7 @@ public class Funcoes {
         Porte newPorte = new Porte(cod,desc);
         porteDao.insert(newPorte);
         System.out.println("Inserted! New id: " + newPorte.getId_Porte());
-        sc.close();
+
     }
 
     static void deletePorte(){
@@ -82,7 +82,7 @@ public class Funcoes {
         int cod= Integer.parseInt(sc.next());
         porteDao.deleteById(cod);
         System.out.println("Delete completed");
-        sc.close();
+
     }
 
     static void updateEndereco() {
@@ -114,7 +114,7 @@ public class Funcoes {
 
         enderecoDao.update(endereco);
         System.out.println("Update completed");
-        sc.close();
+
     }
 
     static void findIdEndereco(){
@@ -126,7 +126,7 @@ public class Funcoes {
         System.out.println("informe o id a ser exibido");
         Endereco endereco = enderecoDao.findById(sc.nextInt());
         System.out.println(endereco);
-        sc.close();
+
 
     }
 
@@ -166,8 +166,7 @@ public class Funcoes {
         enderecoDao.insert(newEndereco);
 
         System.out.println("Inserted! New id: " + newEndereco.getId_Endereco());
-        sc.close();
-        sc2.close();
+
     }
 
     static void deleteEndereco(){
@@ -180,41 +179,47 @@ public class Funcoes {
         int id = sc.nextInt();
         enderecoDao.deleteById(id);
         System.out.println("Delete completed");
-        sc.close();
+
     }
 
 
 
-    static void updateEmpresa(){
+    static void updateEmpresa() {
         Scanner sc = new Scanner(System.in);
         EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
         System.out.println("\n=== TEST 4: update =======");
-        System.out.println("informe o id que deseja atualizar");
-        Empresa empresa = empresaDao.findById(sc.nextInt());
-        System.out.println("Digite o Email: ");
-        sc.nextLine();
+        System.out.println("Informe o ID que deseja atualizar:");
+        int id = sc.nextInt();
+        sc.nextLine(); // Consuma a nova linha após a entrada do número
+        Empresa empresa = empresaDao.findById(id);
+
+        System.out.println("Digite o Email:");
         empresa.setEmail(sc.nextLine());
-        System.out.println("Digite a Razao Social: ");
-        sc.nextLine();
+
+        System.out.println("Digite a Razão Social:");
         empresa.setRazao_social(sc.nextLine());
-        System.out.println("Digite o Nome Fantasia: ");
-        sc.nextLine();
+
+        System.out.println("Digite o Nome Fantasia:");
         empresa.setNome_fantasia(sc.nextLine());
-        System.out.println("Digite o CNPJ");
-        sc.nextLine();
+
+        System.out.println("Digite o CNPJ:");
         empresa.setCnpj(sc.nextLine());
-        System.out.println("Digite a Quantidade de Funcionarios");
-        sc.nextLine();
+
+        System.out.println("Digite a Quantidade de Funcionários:");
         empresa.setQtd_funcionarios(sc.nextInt());
-        System.out.println("Digite o Telefone");
-        sc.nextLine();
+        sc.nextLine(); // Consuma a nova linha após a entrada do número
+
+        System.out.println("Digite o Telefone:");
         empresa.setTelefone(sc.nextLine());
-        System.out.println("Digite a Pontuacao");
-        sc.nextLine();
+
+        System.out.println("Digite a Pontuação:");
         empresa.setPontuacao(sc.nextInt());
+
         empresaDao.update(empresa);
         System.out.println("Update completed");
+
     }
+
 
     static void findIdEmpresa(){
         Scanner sc = new Scanner(System.in);
@@ -225,7 +230,7 @@ public class Funcoes {
         System.out.println("informe o id a ser exibido");
         Empresa empresa = empresaDao.findById(sc.nextInt());
         System.out.println(empresa);
-        sc.close();
+
 
     }
 
@@ -268,8 +273,7 @@ public class Funcoes {
         empresaDao.insert(newEmpresa);
 
         System.out.println("Inserted! New id: " + newEmpresa.getId_Empresa());
-        sc.close();
-        sc2.close();
+
     }
 
     static void deleteEmpresa(){
@@ -282,7 +286,7 @@ public class Funcoes {
         int id = sc.nextInt();
         empresaDao.deleteById(id);
         System.out.println("Delete completed");
-        sc.close();
+
     }
 
     static void updateRamo(){
@@ -301,7 +305,7 @@ public class Funcoes {
         ramo.setNome(desc);
         ramoDao.update(ramo);
         System.out.println("Update completed");
-        sc.close();
+
 
     }
 
@@ -314,7 +318,7 @@ public class Funcoes {
         System.out.println("informe o id a ser exibido");
         Ramo dep = ramoDao.findById(sc.nextInt());
         System.out.println(dep);
-        sc.close();
+
 
     }
 
@@ -342,7 +346,7 @@ public class Funcoes {
         Ramo NewRamo = new Ramo(cod,desc);
         ramoDao.insert(NewRamo);
         System.out.println("Inserted! New id: " + NewRamo.getId_Ramo());
-        sc.close();
+
     }
 
     static void deleteRamo(){
@@ -355,6 +359,6 @@ public class Funcoes {
         int cod= Integer.parseInt(sc.next());
         ramoDao.deleteById(cod);
         System.out.println("Delete completed");
-        sc.close();
+
     }
 }
