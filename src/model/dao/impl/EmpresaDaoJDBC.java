@@ -123,9 +123,7 @@ public class EmpresaDaoJDBC implements EmpresaDao {
         catch (SQLException e) {
             throw new DbException(e.getMessage());
         }
-        finally {
-            DB.closeStatement(st);
-        }
+
     }
 
     @Override
@@ -136,11 +134,11 @@ public class EmpresaDaoJDBC implements EmpresaDao {
                     "UPDATE Empresa " +
                             "SET email = ?, " +
                             "razao_socail = ?, " +
-                            "nome_fantasia = ?," +
-                            "cnpj = ?," +
-                            "quantidade_funcionario = ?," +
-                            "telefone = ?," +
-                            "pontuacao = ?," +
+                            "nome_fantasia = ?, " +
+                            "cnpj = ?, " +
+                            "quantidade_funcionario = ?, " +
+                            "telefone = ?, " +
+                            "pontuacao = ? " + // Removed the comma here
                             "WHERE id_empresa = ?");
 
             st.setString(1, obj.getEmail());
@@ -150,6 +148,7 @@ public class EmpresaDaoJDBC implements EmpresaDao {
             st.setInt(5, obj.getQtd_funcionarios());
             st.setString(6, obj.getTelefone());
             st.setInt(7, obj.getPontuacao());
+            st.setInt(8, obj.getId_Empresa());
             st.executeUpdate();
         }
         catch (SQLException e) {

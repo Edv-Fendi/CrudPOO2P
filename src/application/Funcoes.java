@@ -1,11 +1,9 @@
 package application;
-import model.dao.EmpresaDao;
-import model.dao.EnderecoDao;
+import model.dao.*;
 import model.entities.Empresa;
 import model.entities.Endereco;
 import model.entities.Porte;
-import model.dao.DaoFactory;
-import model.dao.PorteDao;
+import model.entities.Ramo;
 
 
 import java.util.List;
@@ -19,18 +17,19 @@ public class Funcoes {
 
         System.out.println("\n=== TEST 4: update =======");
         System.out.println("informe o id que deseja atualizar");
-        Porte porte = porteDao.findById(sc.nextInt());
-        System.out.println("digite o codigo:");
-        int cod= Integer.parseInt(sc.next());
-        System.out.println("digite a descricao:");
-        sc.nextLine();// para limpar o buffer e liberar a proxima pergunta
-        String desc= sc.nextLine();
-        porte.setId_Porte(cod);
-        porte.setNome(desc);
+        int id = sc.nextInt(); // Get the ID to find the Porte
+        Porte porte = porteDao.findById(id);
+        if (porte == null) {
+            System.out.println("Porte not found!");
+            return; // Exit the method if no Porte is found
+        }
+        System.out.println("Current description: " + porte.getNome());
+        System.out.println("digite a nova descricao:");
+        sc.nextLine(); // para limpar o buffer e liberar a proxima pergunta
+        String desc = sc.nextLine();
+        porte.setNome(desc); // You only set the new name, no need to set the ID again
         porteDao.update(porte);
         System.out.println("Update completed");
-        sc.close();
-
     }
 
     static void findIdPorte(){
@@ -213,8 +212,6 @@ public class Funcoes {
         empresa.setPontuacao(sc.nextInt());
         empresaDao.update(empresa);
         System.out.println("Update completed");
-        sc.close();
-
     }
 
     static void findIdEmpresa(){
@@ -282,6 +279,79 @@ public class Funcoes {
         System.out.print("Enter id for delete test: ");
         int id = sc.nextInt();
         empresaDao.deleteById(id);
+        System.out.println("Delete completed");
+        sc.close();
+    }
+
+    static void updateRamo(){
+        Scanner sc = new Scanner(System.in);
+        RamoDao ramoDao = DaoFactory.createRamoDao();
+
+        System.out.println("\n=== TEST 4: update =======");
+        System.out.println("informe o id que deseja atualizar");
+        Ramo ramo = ramoDao.findById(sc.nextInt());
+        System.out.println("digite o codigo:");
+        int cod= Integer.parseInt(sc.next());
+        System.out.println("digite a descricao:");
+        sc.nextLine();// para limpar o buffer e liberar a proxima pergunta
+        String desc= sc.nextLine();
+        ramo.setId_Ramo(cod);
+        ramo.setNome(desc);
+        ramoDao.update(ramo);
+        System.out.println("Update completed");
+        sc.close();
+
+    }
+
+    static void findIdRamo(){
+        Scanner sc = new Scanner(System.in);
+
+        RamoDao ramoDao = DaoFactory.createRamoDao();
+
+        System.out.println("=== TEST 1: findById =======");
+        System.out.println("informe o id a ser exibido");
+        Ramo dep = ramoDao.findById(sc.nextInt());
+        System.out.println(dep);
+        sc.close();
+
+    }
+
+    static void findAllRamo(){
+        RamoDao ramoDao = DaoFactory.createRamoDao();
+
+        System.out.println("\n=== TEST 2: findAll =======");
+        List<Ramo> list = ramoDao.findAll();
+        for (Ramo d : list) {
+            System.out.println(d);
+        }
+
+    }
+
+    static void insertRamo(){
+        Scanner sc = new Scanner(System.in);
+
+        RamoDao ramoDao = DaoFactory.createRamoDao();
+        System.out.println("\n=== TEST 3: insert =======");
+        System.out.println("digite o codigo");
+        int cod = Integer.parseInt(sc.next());
+        System.out.println("digite a descricao");
+        sc.nextLine();
+        String desc = sc.nextLine();
+        Ramo NewRamo = new Ramo(cod,desc);
+        ramoDao.insert(NewRamo);
+        System.out.println("Inserted! New id: " + NewRamo.getId_Ramo());
+        sc.close();
+    }
+
+    static void deleteRamo(){
+        Scanner sc = new Scanner(System.in);
+
+        RamoDao ramoDao = DaoFactory.createRamoDao();
+
+        System.out.println("\n=== TEST 5: delete =======");
+        System.out.print("Enter id for delete test: ");
+        int cod= Integer.parseInt(sc.next());
+        ramoDao.deleteById(cod);
         System.out.println("Delete completed");
         sc.close();
     }

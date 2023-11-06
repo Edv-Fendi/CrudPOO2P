@@ -1,40 +1,50 @@
 package application;
 
 import java.util.Scanner;
-
 import model.entities.Porte;
 
 public class CrudPorte extends Funcoes {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Escolha uma das opções abaixo");
-		System.out.println("0 - findId\n" +
-				"1 - findAll\n" +
-				"2 - insert\n" +
-				"3 - delete\n" +
-				"4 - update\n" +
-				"Digite o numero:");
-		Integer escolha = sc.nextInt();
+		int escolha;
 
-		switch (escolha){
-			case 0:
-				findIdPorte();
-				break;
-			case 1:
-				findAllPorte();
-				break;
-			case 2:
-				insertPorte();
-				break;
-			case 3:
-				deletePorte();
-				break;
-			case 4:
-				updatePorte();
-				break;
-			default:
-				System.out.println("escolha invalida");
-		}
+		do {
+			System.out.println("\nEscolha uma das opções abaixo ou digite 0 para sair:");
+			System.out.println("1 - findId\n" +
+					"2 - findAll\n" +
+					"3 - insert\n" +
+					"4 - delete\n" +
+					"5 - update\n" +
+					"Digite o numero:");
+			escolha = sc.nextInt();
+
+			switch (escolha){
+				case 1:
+					findIdPorte();
+					break;
+				case 2:
+					findAllPorte();
+					break;
+				case 3:
+					insertPorte();
+					break;
+				case 4:
+					deletePorte();
+					break;
+				case 5:
+					findAllPorte();
+					updatePorte();
+					break;
+				case 0:
+					System.out.println("Saindo...");
+					break;
+				default:
+					System.out.println("Escolha inválida");
+			}
+		} while (escolha != 0);
+
+		sc.close(); // Close the scanner only once here, after the loop
+		System.out.println("Programa encerrado.");
 	}
 }
