@@ -15,6 +15,12 @@ public class DaoFactory {
 		return new EnderecoDaoJDBC(DB.getConnection());
 	}
 
+
+
+
+
+
+
 	public static ColaboradorDao createColaboradorDao() {return new ColaboradorDaoJDBC(DB.getConnection());
 	}
 }
