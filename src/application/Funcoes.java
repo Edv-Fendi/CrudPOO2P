@@ -141,18 +141,16 @@ public class Funcoes {
 
     }
 
-    static void insertEndereco(){
+    static void insertEndereco() {
         Scanner sc = new Scanner(System.in);
-        Scanner sc2 = new Scanner(System.in);
-
         EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
 
         System.out.println("\n=== TEST 3: insert =======");
         System.out.println("Digite a Cidade: ");
         String cidade = sc.nextLine();
         System.out.println("Digite o Numero: ");
-        sc.nextLine();
-        String numero = sc.nextLine();
+        String numero = sc.nextLine(); // Leia o número diretamente
+
         System.out.println("Digite o Estado: ");
         String estado = sc.nextLine();
         System.out.println("Digite o Bairro");
@@ -162,12 +160,12 @@ public class Funcoes {
         System.out.println("Digite o Complemento");
         String complemento = sc.nextLine();
 
-        Endereco newEndereco = new Endereco(null,cidade,numero,estado,bairro,cep, complemento);
+        Endereco newEndereco = new Endereco(null, cidade, numero, estado, bairro, cep, complemento);
         enderecoDao.insert(newEndereco);
 
         System.out.println("Inserted! New id: " + newEndereco.getId_Endereco());
-
     }
+
 
     static void deleteEndereco(){
         Scanner sc = new Scanner(System.in);

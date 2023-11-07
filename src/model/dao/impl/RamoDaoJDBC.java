@@ -26,7 +26,7 @@ public class RamoDaoJDBC implements RamoDao {
         ResultSet rs = null;
         try {
             st = conn.prepareStatement(
-                    "SELECT * FROM porte WHERE id_Ramo = ?");
+                    "SELECT * FROM ramo WHERE id_Ramo = ?");
             st.setInt(1, id);
             rs = st.executeQuery();
             if (rs.next()) {

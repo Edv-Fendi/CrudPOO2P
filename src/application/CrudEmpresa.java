@@ -11,7 +11,8 @@ public class CrudEmpresa extends Funcoes {
 
         do {
             System.out.println("\nEscolha uma das opções abaixo ou digite 0 para sair:");
-            System.out.println("1 - findId\n" +
+            System.out.println("0 - Sair do sistema\n" +
+                    "1 - findId\n" +
                     "2 - findAll\n" +
                     "3 - insert\n" +
                     "4 - delete\n" +
