@@ -11,12 +11,12 @@ public class CrudEmpresa extends Funcoes {
 
         do {
             System.out.println("\nEscolha uma das opções abaixo ou digite 0 para sair:");
-            System.out.println("0 - Sair do sistema\n" +
-                    "1 - findId\n" +
-                    "2 - findAll\n" +
-                    "3 - insert\n" +
-                    "4 - delete\n" +
-                    "5 - update\n" +
+            System.out.println("0 - Sair\n" +
+                    "1 - Selecionar pelo ID \n" +
+                    "2 - Selecionar todas as Empresas\n" +
+                    "3 - Inserir um nova Empresa\n" +
+                    "4 - Deletar uma Eempresa\n" +
+                    "5 - Atualizar uma Empresa\n" +
                     "Digite o numero:");
             escolha = sc.nextInt();
 

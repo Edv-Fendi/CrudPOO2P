@@ -31,6 +31,7 @@ public class CrudPorte extends Funcoes {
 					insertPorte();
 					break;
 				case 4:
+					findAllPorte();
 					deletePorte();
 					break;
 				case 5:

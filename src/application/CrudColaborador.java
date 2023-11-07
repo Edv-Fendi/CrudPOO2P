@@ -2,39 +2,46 @@ package application;
 
 import java.util.Scanner;
 
-
 public class CrudColaborador extends Funcoes {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-        System.out.println("Escolha uma das opções abaixo:");
-        System.out.println("0 - findId\n" +
-                "1 - findAll\n" +
-                "2 - insert\n" +
-                "3 - delete\n" +
-                "4 - update\n" +
-                "Digite o número:");
-        int escolha = sc.nextInt();
+        int escolha;
+        do {
+            System.out.println("Escolha uma das opções abaixo");
+            System.out.println("0 - Sair do sistema\n" +
+                    "1 - findId\n" +
+                    "2 - findAll\n" +
+                    "3 - insert\n" +
+                    "4 - delete\n" +
+                    "5 - update\n" +
+                    "Digite o numero:");
+            escolha = sc.nextInt();
 
-        switch (escolha) {
-            case 0:
-                findIdColaborador();
-                break;
-            case 1:
-                findAllColaborador();
-                break;
-            case 2:
-                insertColaborador();
-                break;
-            case 3:
-                deleteColaborador();
-                break;
-            case 4:
-                updateColaborador();
-                break;
-            default:
-                System.out.println("Escolha inválida");
-        }
+            switch (escolha) {
+                case 0:
+                    System.out.println("Saindo do sistema...");
+                    // Você pode adicionar qualquer lógica de saída aqui, se necessário.
+                    break;
+                case 1:
+                    findIdColaborador();
+                    break;
+                case 2:
+                    findAllColaborador();
+                    break;
+                case 3:
+                    insertColaborador();
+                    break;
+                case 4:
+                    findAllColaborador();
+                    deleteColaborador();
+                    break;
+                case 5:
+                    findAllColaborador();
+                    updateColaborador();
+                    break;
+                default:
+                    System.out.println("Escolha inválida");
+            }
+        } while (escolha != 0);
     }
 }
-

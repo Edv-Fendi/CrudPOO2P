@@ -131,7 +131,7 @@ public class ColaboradorDaoJDBC implements ColaboradorDao {
                             "Email = ?, " +
                             "Funcao = ?, " +
                             "Setor = ?, " +
-                            "is_Admin = ?, " +
+                            "is_Admin = ? " + // Removed the comma before WHERE
                             "WHERE Id_Colaborador = ?");
 
             st.setString(1, obj.getNome());
@@ -142,7 +142,10 @@ public class ColaboradorDaoJDBC implements ColaboradorDao {
             st.setBoolean(6, obj.isAdmin());
             st.setInt(7, obj.getId_Colaborador());
 
-            st.executeUpdate();
+            int rowsAffected = st.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new DbException("No rows updated. Please check if the ID is correct.");
+            }
         }
         catch (SQLException e) {
             throw new DbException(e.getMessage());

@@ -14,20 +14,24 @@ public class Colaborador implements Serializable {
     private String setor;
     private boolean isAdmin;
 
-
     public Colaborador() {
     }
 
-
     public Colaborador(String nome, String telefone, String email, String funcao, String setor, boolean isAdmin) {
-    }
-
-    public Integer getId_Colaborador() {
-
-        return id_Colaborador;
+        this.id_Colaborador = id_Colaborador;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.funcao = funcao;
+        this.setor = setor;
+        this.isAdmin = isAdmin;
     }
 
     public void setId_Colaborador(Integer id_Colaborador) {this.id_Colaborador = id_Colaborador;
+    }
+
+    public Integer getId_Colaborador() {
+        return id_Colaborador;
     }
 
     public String getNome() {

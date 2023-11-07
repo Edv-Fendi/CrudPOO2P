@@ -135,7 +135,7 @@ public class RamoDaoJDBC implements RamoDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement(
-                    "DELETE FROM porte WHERE id_Ramo = ?");
+                    "DELETE FROM ramo WHERE id_Ramo = ?");
 
             st.setInt(1, id);
 
