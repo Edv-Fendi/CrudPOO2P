@@ -1,7 +1,7 @@
 package model.dao;
 
 import db.DB;
-import model.dao.impl.EmpresaDaoJDBC;
+import model.dao.impl.ColaboradorDaoJDBC;
 import model.dao.impl.EnderecoDaoJDBC;
 import model.dao.impl.PorteDaoJDBC;
 import model.dao.impl.RamoDaoJDBC;
@@ -16,12 +16,11 @@ public class DaoFactory {
 		return new EnderecoDaoJDBC(DB.getConnection());
 	}
 
-	public static  EmpresaDao createEmpresaDao() {
-		return new EmpresaDaoJDBC(DB.getConnection());
+	public static ColaboradorDao createColaboradorDao() {return new ColaboradorDaoJDBC(DB.getConnection());
 	}
+
 
 	public static  RamoDao createRamoDao() {
 		return new RamoDaoJDBC(DB.getConnection());
 	}
-
 }

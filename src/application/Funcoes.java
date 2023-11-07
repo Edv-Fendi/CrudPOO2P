@@ -1,9 +1,17 @@
 package application;
+
 import model.dao.*;
 import model.entities.Empresa;
 import model.entities.Endereco;
 import model.entities.Porte;
 import model.entities.Ramo;
+import model.dao.ColaboradorDao;
+import model.dao.EnderecoDao;
+import model.entities.Endereco;
+import model.entities.Porte;
+import model.dao.DaoFactory;
+import model.dao.PorteDao;
+import model.entities.Colaborador;
 
 
 import java.util.List;
@@ -11,7 +19,7 @@ import java.util.Scanner;
 
 public class Funcoes {
     // eixo
-    static void updatePorte(){
+    static void updatePorte() {
         Scanner sc = new Scanner(System.in);
         PorteDao porteDao = DaoFactory.createPorteDao();
 
@@ -32,7 +40,7 @@ public class Funcoes {
         System.out.println("Update completed");
     }
 
-    static void findIdPorte(){
+    static void findIdPorte() {
         Scanner sc = new Scanner(System.in);
 
         PorteDao porteDao = DaoFactory.createPorteDao();
@@ -45,7 +53,7 @@ public class Funcoes {
 
     }
 
-    static void findAllPorte(){
+    static void findAllPorte() {
         PorteDao porteDao = DaoFactory.createPorteDao();
 
         System.out.println("\n=== TEST 2: findAll =======");
@@ -56,7 +64,7 @@ public class Funcoes {
 
     }
 
-    static void insertPorte(){
+    static void insertPorte() {
         Scanner sc = new Scanner(System.in);
 
         PorteDao porteDao = DaoFactory.createPorteDao();
@@ -66,20 +74,20 @@ public class Funcoes {
         System.out.println("digite a descricao");
         sc.nextLine();
         String desc = sc.nextLine();
-        Porte newPorte = new Porte(cod,desc);
+        Porte newPorte = new Porte(cod, desc);
         porteDao.insert(newPorte);
         System.out.println("Inserted! New id: " + newPorte.getId_Porte());
 
     }
 
-    static void deletePorte(){
+    static void deletePorte() {
         Scanner sc = new Scanner(System.in);
 
         PorteDao porteDao = DaoFactory.createPorteDao();
 
         System.out.println("\n=== TEST 5: delete =======");
         System.out.print("Enter id for delete test: ");
-        int cod= Integer.parseInt(sc.next());
+        int cod = Integer.parseInt(sc.next());
         porteDao.deleteById(cod);
         System.out.println("Delete completed");
 
@@ -117,7 +125,7 @@ public class Funcoes {
 
     }
 
-    static void findIdEndereco(){
+    static void findIdEndereco() {
         Scanner sc = new Scanner(System.in);
 
         EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
@@ -130,7 +138,7 @@ public class Funcoes {
 
     }
 
-    static void findAllEndereco(){
+    static void findAllEndereco() {
         EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
 
         System.out.println("\n=== TEST 2: findAll =======");
@@ -166,7 +174,6 @@ public class Funcoes {
         System.out.println("Inserted! New id: " + newEndereco.getId_Endereco());
     }
 
-
     static void deleteEndereco(){
         Scanner sc = new Scanner(System.in);
 
@@ -179,7 +186,6 @@ public class Funcoes {
         System.out.println("Delete completed");
 
     }
-
 
 
     static void updateEmpresa() {
@@ -229,58 +235,101 @@ public class Funcoes {
         Empresa empresa = empresaDao.findById(sc.nextInt());
         System.out.println(empresa);
 
+    static void updateColaborador() {
+        Scanner sc = new Scanner(System.in);
+        ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
 
-    }
+        System.out.println("=== Update Colaborador ===");
+        System.out.println("Enter the ID of the Colaborador to update:");
+        int id = sc.nextInt();
+        Colaborador colaborador = colaboradorDao.findById(id);
 
-    static void findAllEmpresa(){
-        EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
+        if (colaborador != null) {
+            System.out.println("Enter the new Nome:");
+            sc.nextLine(); // Clear the buffer
+            String nome = sc.nextLine();
+            System.out.println("Enter the new Telefone:");
+            String telefone = sc.next();
+            System.out.println("Enter the new Email:");
+            String email = sc.next();
+            System.out.println("Enter the new Funcao:");
+            String funcao = sc.next();
+            System.out.println("Enter the new Setor:");
+            String setor = sc.next();
+            System.out.println("Is this Colaborador an Admin? (true or false):");
+            boolean isAdmin = sc.nextBoolean();
 
-        System.out.println("\n=== TEST 2: findAll =======");
-        List<Empresa> list = empresaDao.findAll();
-        for (Empresa empresa : list) {
-            System.out.println(empresa);
+            colaborador.setNome(nome);
+            colaborador.setTelefone(telefone);
+            colaborador.setEmail(email);
+            colaborador.setFuncao(funcao);
+            colaborador.setSetor(setor);
+            colaborador.setAdmin(isAdmin);
+
+            colaboradorDao.update(colaborador);
+            System.out.println("Colaborador updated successfully.");
+        } else {
+            System.out.println("Colaborador not found.");
         }
 
+        sc.close();
     }
 
-    static void insertEmpresa(){
+
+
+    static void findAllColaborador() {
+        ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
+
+        System.out.println("=== Find All Colaboradores ===");
+        List<Colaborador> colaboradores = colaboradorDao.findAll();
+        for (Colaborador colaborador : colaboradores) {
+            System.out.println(colaborador);
+        }
+    }
+
+    static void insertColaborador() {
         Scanner sc = new Scanner(System.in);
-        Scanner sc2 = new Scanner(System.in);
+        ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
 
-        EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
+        System.out.println("=== Insert Colaborador ===");
+        System.out.println("Digite o Nome :");
+        String nome = sc.next();
+        System.out.println("Digite o Telefone:");
+        String telefone = sc.next();
+        System.out.println("Digite o Email:");
+        String email = sc.next();
+        System.out.println("Digite o Funcao:");
+        String funcao = sc.next();
+        System.out.println("Digite o Setor:");
+        String setor = sc.next();
+        System.out.println("O Colaborador é Admin? (True ou False):");
+        boolean isAdmin = sc.nextBoolean();
 
-        System.out.println("\n=== TEST 3: insert =======");
-        System.out.println("Digite a Email: ");
-        String email = sc.nextLine();
-        System.out.println("Digite a Razao Social: ");
-        String razao_social = sc.nextLine();
-        System.out.println("Digite o Nome Fantasia: ");
-        String nome_fantasia = sc.nextLine();
-        System.out.println("Digite o CNPJ");
-        String cnpj = sc.nextLine();
-        System.out.println("Digite a Quantidade de Funcionarios");
-        int qtd_funcionarios = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Digite o Telefone");
-        String telefone = sc.nextLine();
-        System.out.println("Digite a Pontuacao");
-        int pontuacao = sc.nextInt();
-        sc.nextLine();
+        Colaborador newColaborador = new Colaborador(nome, telefone,email,funcao,setor,isAdmin );
 
-        Empresa newEmpresa = new Empresa(null,email,razao_social,nome_fantasia,cnpj,qtd_funcionarios, telefone, pontuacao);
-        empresaDao.insert(newEmpresa);
 
+        colaboradorDao.insert(newColaborador);
+        System.out.println("Colaborador inserted successfully.");
+        sc.close();
+    }
+
+    static void deleteColaborador() {
+        Scanner sc = new Scanner(System.in);
+        ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
+
+        System.out.println("=== Delete Colaborador ===");
+        System.out.println("Enter the ID of the Colaborador to delete:");
+        int id = sc.nextInt();
         System.out.println("Inserted! New id: " + newEmpresa.getId_Empresa());
 
     }
 
-    static void deleteEmpresa(){
+    static void findIdColaborador() {
         Scanner sc = new Scanner(System.in);
+        ColaboradorDao colaboradorDao1 = DaoFactory.createColaboradorDao();
 
-        EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
-
-        System.out.println("\n=== TEST 5: delete =======");
-        System.out.print("Enter id for delete test: ");
+        System.out.println("=== Find Colaborador by ID ===");
+        System.out.println("Enter the ID of the Colaborador to find:");
         int id = sc.nextInt();
         empresaDao.deleteById(id);
         System.out.println("Delete completed");
@@ -357,6 +406,6 @@ public class Funcoes {
         int cod= Integer.parseInt(sc.next());
         ramoDao.deleteById(cod);
         System.out.println("Delete completed");
-
     }
+
 }
