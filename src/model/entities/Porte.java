@@ -16,7 +16,7 @@ public class Porte {
                 '}';
     }
 
-    public Porte(int id_Porte, String nome) {
+    public Porte( String nome) {
         this.id_Porte = id_Porte;
         this.nome = nome;
     }

@@ -16,7 +16,7 @@ public class Ramo {
                 '}';
     }
 
-    public Ramo(int id_Ramo, String nome) {
+    public Ramo( String nome) {
         this.id_Ramo = id_Ramo;
         this.nome = nome;
     }

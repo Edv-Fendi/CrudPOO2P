@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Funcoes {
-    static void updatePorte() {
+   public static void updatePorte() {
         Scanner sc = new Scanner(System.in);
         PorteDao porteDao = DaoFactory.createPorteDao();
 
@@ -39,7 +39,7 @@ public class Funcoes {
         System.out.println("Porte atualizado com sucesso.");
     }
 
-    static void findIdPorte() {
+    public static void findIdPorte() {
         Scanner sc = new Scanner(System.in);
 
         PorteDao porteDao = DaoFactory.createPorteDao();
@@ -54,7 +54,7 @@ public class Funcoes {
         }
     }
 
-    static void findAllPorte() {
+   public static void findAllPorte() {
         PorteDao porteDao = DaoFactory.createPorteDao();
         System.out.println("\n=== LISTAGEM DE TODOS OS PORTES ===");
         List<Porte> list = porteDao.findAll();
@@ -67,37 +67,37 @@ public class Funcoes {
         }
     }
 
-    static void insertPorte() {
+   public static void insertPorte() {
         Scanner sc = new Scanner(System.in);
         PorteDao porteDao = DaoFactory.createPorteDao();
         System.out.println("\n=== INSERÇÃO DE PORTE =======");
-        System.out.println("Digite o código:");
-        int cod = Integer.parseInt(sc.next());
+//        System.out.println("Digite o código:");
+//        int cod = Integer.parseInt(sc.next());
         System.out.println("Digite a descrição:");
         sc.nextLine();
         String desc = sc.nextLine();
-        Porte newPorte = new Porte(cod, desc);
+        Porte newPorte = new Porte(desc);
         porteDao.insert(newPorte);
-        System.out.println("Inserted! New id: " + newPorte.getId_Porte());
+        System.out.println("Porte inserido com sucesso!! ID: " + newPorte.getId_Porte());
     }
 
-    static void deletePorte() {
+   public static void deletePorte() {
         Scanner sc = new Scanner(System.in);
 
         PorteDao porteDao = DaoFactory.createPorteDao();
 
-        System.out.println("\n=== TEST 5: delete =======");
-        System.out.print("Enter id for delete test: ");
+        System.out.println("\n=== DELETAR PORTE =======");
+        System.out.print("Digite o ID para Deletar: ");
         int cod = Integer.parseInt(sc.next());
         porteDao.deleteById(cod);
-        System.out.println("Delete completed");
+        System.out.println("Deletado com sucesso!!");
 
     }
 
-    static void updateEndereco() {
+   public static void updateEndereco() {
         Scanner sc = new Scanner(System.in);
         EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
-        System.out.println("\n=== TEST 4: update =======");
+        System.out.println("\n=== Atualizar =======");
         System.out.println("Informe o ID que deseja atualizar:");
         int id = sc.nextInt();
         sc.nextLine(); // Consuma a nova linha após a entrada do número
@@ -122,27 +122,27 @@ public class Funcoes {
         endereco.setComplemento(sc.nextLine());
 
         enderecoDao.update(endereco);
-        System.out.println("Update completed");
+        System.out.println("Atualização Completa!!");
 
     }
 
-    static void findIdEndereco() {
+    public static void findIdEndereco() {
         Scanner sc = new Scanner(System.in);
 
         EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
 
-        System.out.println("=== TEST 1: findById =======");
-        System.out.println("informe o id a ser exibido");
+        System.out.println("=== BUSCA POR ID =======");
+        System.out.println("Informe o id a ser exibido:");
         Endereco endereco = enderecoDao.findById(sc.nextInt());
         System.out.println(endereco);
 
 
     }
 
-    static void findAllEndereco() {
+    public static void findAllEndereco() {
         EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
 
-        System.out.println("\n=== TEST 2: findAll =======");
+        System.out.println("\n=== LISTA DE ENDERECOS =======");
         List<Endereco> list = enderecoDao.findAll();
         for (Endereco endereco : list) {
             System.out.println(endereco);
@@ -150,11 +150,11 @@ public class Funcoes {
 
     }
 
-    static void insertEndereco() {
+    public static void insertEndereco() {
         Scanner sc = new Scanner(System.in);
         EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
 
-        System.out.println("\n=== TEST 3: insert =======");
+        System.out.println("\n=== CADASTRAR ENDERECO =======");
         System.out.println("Digite a Cidade: ");
         String cidade = sc.nextLine();
         System.out.println("Digite o Numero: ");
@@ -172,27 +172,27 @@ public class Funcoes {
         Endereco newEndereco = new Endereco(null, cidade, numero, estado, bairro, cep, complemento);
         enderecoDao.insert(newEndereco);
 
-        System.out.println("Inserted! New id: " + newEndereco.getId_Endereco());
+        System.out.println("Endereco inserido com Sucesso!!!");
     }
 
-    static void deleteEndereco(){
+    public static void deleteEndereco(){
         Scanner sc = new Scanner(System.in);
 
         EnderecoDao enderecoDao = DaoFactory.createEnderecoDao();
 
-        System.out.println("\n=== TEST 5: delete =======");
-        System.out.print("Enter id for delete test: ");
+        System.out.println("\n=== DELETE ENDERECO =======");
+        System.out.print("Digite o id do Endereco: ");
         int id = sc.nextInt();
         enderecoDao.deleteById(id);
-        System.out.println("Delete completed");
+        System.out.println("Endereco Removido!!");
 
     }
 
 
-    static void updateEmpresa() {
+    public static void updateEmpresa() {
         Scanner sc = new Scanner(System.in);
         EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
-        System.out.println("\n=== TEST 4: update =======");
+        System.out.println("\n=== Atualizar Empresa =======");
         System.out.println("Informe o ID que deseja atualizar:");
         int id = sc.nextInt();
         sc.nextLine(); // Consuma a nova linha após a entrada do número
@@ -221,23 +221,23 @@ public class Funcoes {
         empresa.setPontuacao(sc.nextInt());
 
         empresaDao.update(empresa);
-        System.out.println("Update completed");
+        System.out.println("Atualizado com sucesso!!");
     }
 
-    static void findIdEmpresa() {
+    public static void findIdEmpresa() {
         Scanner sc = new Scanner(System.in);
 
         EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
 
-        System.out.println("=== TEST 1: findById =======");
-        System.out.println("informe o id a ser exibido");
+        System.out.println("=== Busca de Empresa por ID =======");
+        System.out.println("Informe o id a ser exibido");
         Empresa empresa = empresaDao.findById(sc.nextInt());
         System.out.println(empresa);
     }
-    static void findAllEmpresa(){
+    public static void findAllEmpresa(){
         EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
 
-        System.out.println("\n=== TEST 2: findAll =======");
+        System.out.println("\n=== Lista de Empresas =======");
         List<Empresa> list = empresaDao.findAll();
         for (Empresa empresa : list) {
             System.out.println(empresa);
@@ -245,13 +245,13 @@ public class Funcoes {
 
     }
 
-    static void insertEmpresa(){
+    public static void insertEmpresa(){
         Scanner sc = new Scanner(System.in);
         Scanner sc2 = new Scanner(System.in);
 
         EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
 
-        System.out.println("\n=== TEST 3: insert =======");
+        System.out.println("\n=== Cadastrar Empresa =======");
         System.out.println("Digite a Email: ");
         String email = sc.nextLine();
         System.out.println("Digite a Razao Social: ");
@@ -272,44 +272,44 @@ public class Funcoes {
         Empresa newEmpresa = new Empresa(null,email,razao_social,nome_fantasia,cnpj,qtd_funcionarios, telefone, pontuacao);
         empresaDao.insert(newEmpresa);
 
-        System.out.println("Inserted! New id: " + newEmpresa.getId_Empresa());
+        System.out.println("Cadastrado com sucesso!!");
     }
 
-    static void deleteEmpresa(){
+    public static void deleteEmpresa(){
         Scanner sc = new Scanner(System.in);
 
         EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
 
-        System.out.println("\n=== TEST 5: delete =======");
-        System.out.print("Enter id for delete test: ");
+        System.out.println("\n=== Remover Empresa =======");
+        System.out.print("Digite o id da empresa: ");
         int id = sc.nextInt();
         empresaDao.deleteById(id);
-        System.out.println("Delete completed");
+        System.out.println("Removido com Sucesso!!");
     }
 
-    static void updateColaborador() {
+    public static void updateColaborador() {
         Scanner sc = new Scanner(System.in);
         ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
 
-        System.out.println("=== Update Colaborador ===");
-        System.out.println("Enter the ID of the Colaborador to update:");
+        System.out.println("=== Atualizar Colaborador ===");
+        System.out.println("Digite o ID do colaborador:");
         int id = sc.nextInt();
         Colaborador colaborador = colaboradorDao.findById(id);
 
         if (colaborador != null) {
-            System.out.println("Enter the new Nome:");
+            System.out.println("Digite o nome:");
             sc.nextLine(); // Clear the buffer
             String nome = sc.nextLine();
-            System.out.println("Enter the new Telefone:");
+            System.out.println("Digite o telefone(Apenas numeros):");
             String telefone = sc.next();
-            System.out.println("Enter the new Email:");
+            System.out.println("Digite o Email:");
             String email = sc.next();
-            System.out.println("Enter the new Funcao:");
+            System.out.println("Digite sua Funcao:");
             String funcao = sc.next();
-            System.out.println("Enter the new Setor:");
+            System.out.println("Digite seu Setor:");
             String setor = sc.next();
-            System.out.println("Is this Colaborador an Admin? (true or false):");
-            boolean isAdmin = sc.nextBoolean();
+            System.out.println("O Colaborador é Admin? (Sim ou Não):");
+            boolean isAdmin = sc.next().trim().equalsIgnoreCase("sim");
 
             colaborador.setNome(nome);
             colaborador.setTelefone(telefone);
@@ -319,30 +319,30 @@ public class Funcoes {
             colaborador.setAdmin(isAdmin);
 
             colaboradorDao.update(colaborador);
-            System.out.println("Colaborador updated successfully.");
+            System.out.println("Colaborador atualizado com Sucesso!!.");
         } else {
-            System.out.println("Colaborador not found.");
+            System.out.println("Colaborador não existe!!");
         }
     }
 
-    static void findAllColaborador() {
+    public static void findAllColaborador() {
         ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
 
-        System.out.println("=== Find All Colaboradores ===");
+        System.out.println("=== Lista de Colaboradores ===");
         List<Colaborador> colaboradores = colaboradorDao.findAll();
         for (Colaborador colaborador : colaboradores) {
             System.out.println(colaborador);
         }
     }
 
-    static void insertColaborador() {
+    public static void insertColaborador() {
         Scanner sc = new Scanner(System.in);
         ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
 
         System.out.println("=== Inserção de Colaborador ===");
         System.out.println("Digite o Nome:");
-        String nome = sc.nextLine(); // Lê toda a linha, incluindo espaços
-        System.out.println("Digite o Telefone:");
+        String nome = sc.nextLine();
+        System.out.println("Digite o Telefone (Apenas numeros)");
         String telefone = sc.nextLine();
         System.out.println("Digite o Email:");
         String email = sc.nextLine();
@@ -351,7 +351,7 @@ public class Funcoes {
         System.out.println("Digite o Setor:");
         String setor = sc.nextLine();
         System.out.println("O Colaborador é Admin? (Sim ou Não):");
-        boolean isAdmin = sc.nextLine().trim().equalsIgnoreCase("sim"); // Assume "sim" como verdadeiro, todo o resto como falso
+        boolean isAdmin = sc.nextLine().trim().equalsIgnoreCase("sim");
 
         Colaborador newColaborador = new Colaborador(nome, telefone, email, funcao, setor, isAdmin);
 
@@ -360,23 +360,24 @@ public class Funcoes {
     }
 
 
-    static void deleteColaborador() {
+    public static void deleteColaborador() {
         Scanner sc = new Scanner(System.in);
         ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
 
-        System.out.println("=== Delete Colaborador ===");
-        System.out.println("Enter the ID of the Colaborador to delete:");
+        System.out.println("=== Remover Colaborador ===");
+        System.out.println("Digite o ID do Colaborador para deletar!!!:");
         int id = sc.nextInt();
         colaboradorDao.deleteById(id);
+        System.out.println("Colaborador deletado com sucesso!!");
 
     }
 
-    static void findIdColaborador() {
+    public static void findIdColaborador() {
         Scanner sc = new Scanner(System.in);
         ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
 
-        System.out.println("=== Find Colaborador by ID ===");
-        System.out.println("Enter the ID of the Colaborador to find:");
+        System.out.println("=== Buscar Colaborador Pelo ID ===");
+        System.out.println("Digite o ID do colaborador:");
         Colaborador colaborador = colaboradorDao.findById(sc.nextInt());
         System.out.println("Colaborador: ");
         System.out.println(colaborador);
@@ -385,32 +386,27 @@ public class Funcoes {
 
     }
 
-    static void updateRamo(){
+    public static void updateRamo(){
         Scanner sc = new Scanner(System.in);
         RamoDao ramoDao = DaoFactory.createRamoDao();
 
-        System.out.println("\n=== TEST 4: update =======");
+        System.out.println("\n=== Atualizar Ramo =======");
         System.out.println("informe o id que deseja atualizar");
         Ramo ramo = ramoDao.findById(sc.nextInt());
-        System.out.println("digite o codigo:");
-        int cod= Integer.parseInt(sc.next());
         System.out.println("digite a descricao:");
         sc.nextLine();// para limpar o buffer e liberar a proxima pergunta
         String desc= sc.nextLine();
-        ramo.setId_Ramo(cod);
         ramo.setNome(desc);
         ramoDao.update(ramo);
-        System.out.println("Update completed");
-
-
+        System.out.println("Ramo Atualizado com Sucesso");
     }
 
-    static void findIdRamo(){
+    public static void findIdRamo(){
         Scanner sc = new Scanner(System.in);
 
         RamoDao ramoDao = DaoFactory.createRamoDao();
 
-        System.out.println("=== TEST 1: findById =======");
+        System.out.println("=== Buscar Ramo pelo ID =======");
         System.out.println("informe o id a ser exibido");
         Ramo dep = ramoDao.findById(sc.nextInt());
         System.out.println(dep);
@@ -418,10 +414,10 @@ public class Funcoes {
 
     }
 
-    static void findAllRamo(){
+    public static void findAllRamo(){
         RamoDao ramoDao = DaoFactory.createRamoDao();
 
-        System.out.println("\n=== TEST 2: findAll =======");
+        System.out.println("\n=== Lista de Ramos =======");
         List<Ramo> list = ramoDao.findAll();
         for (Ramo d : list) {
             System.out.println(d);
@@ -429,32 +425,29 @@ public class Funcoes {
 
     }
 
-    static void insertRamo(){
+    public static void insertRamo(){
         Scanner sc = new Scanner(System.in);
 
         RamoDao ramoDao = DaoFactory.createRamoDao();
-        System.out.println("\n=== TEST 3: insert =======");
-        System.out.println("digite o codigo");
-        int cod = Integer.parseInt(sc.next());
+        System.out.println("\n=== Inserir Ramo =======");
         System.out.println("digite a descricao");
-        sc.nextLine();
         String desc = sc.nextLine();
-        Ramo NewRamo = new Ramo(cod,desc);
+        Ramo NewRamo = new Ramo(desc);
         ramoDao.insert(NewRamo);
-        System.out.println("Inserted! New id: " + NewRamo.getId_Ramo());
+        System.out.println("Ramo Inserido com Sucesso!!");
 
     }
 
-    static void deleteRamo(){
+    public static void deleteRamo(){
         Scanner sc = new Scanner(System.in);
 
         RamoDao ramoDao = DaoFactory.createRamoDao();
 
-        System.out.println("\n=== TEST 5: delete =======");
-        System.out.print("Enter id for delete test: ");
+        System.out.println("\n=== Remover Ramo =======");
+        System.out.print("Digite o ID do Ramo: ");
         int cod= Integer.parseInt(sc.next());
         ramoDao.deleteById(cod);
-        System.out.println("Delete completed");
+        System.out.println("Ramo deletado com Sucesso!!");
     }
 
 }
