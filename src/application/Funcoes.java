@@ -132,7 +132,11 @@ public class Funcoes {
         System.out.println("=== BUSCA POR ID =======");
         System.out.println("Informe o id a ser exibido:");
         Endereco endereco = enderecoDao.findById(sc.nextInt());
-        System.out.println(endereco);
+        if(endereco != null) {
+            System.out.println(endereco);
+        }else{
+            System.out.println("Endereço não encontrado!!");
+        }
 
 
     }
@@ -142,8 +146,12 @@ public class Funcoes {
 
         System.out.println("\n=== LISTA DE ENDERECOS =======");
         List<Endereco> list = enderecoDao.findAll();
-        for (Endereco endereco : list) {
-            System.out.println(endereco);
+        if (list.isEmpty()) {
+            System.out.println("Não foram encontrados enderecos cadastrados.");
+        } else {
+            for (Endereco endereco : list) {
+                System.out.println(endereco);
+            }
         }
 
     }
@@ -237,8 +245,13 @@ public class Funcoes {
 
         System.out.println("\n=== Lista de Empresas =======");
         List<Empresa> list = empresaDao.findAll();
-        for (Empresa empresa : list) {
-            System.out.println(empresa);
+
+        if (list.isEmpty()) {
+            System.out.println("Não foram encontrados Empresas cadastrados.");
+        } else {
+            for (Empresa empresa : list) {
+                System.out.println(empresa);
+            }
         }
 
     }
@@ -327,9 +340,13 @@ public class Funcoes {
         ColaboradorDao colaboradorDao = DaoFactory.createColaboradorDao();
 
         System.out.println("=== Lista de Colaboradores ===");
-        List<Colaborador> colaboradores = colaboradorDao.findAll();
-        for (Colaborador colaborador : colaboradores) {
-            System.out.println(colaborador);
+        List<Colaborador> list = colaboradorDao.findAll();
+        if (list.isEmpty()) {
+            System.out.println("Não foram encontrados enderecos cadastrados.");
+        } else {
+            for (Colaborador colaborador : list) {
+                System.out.println(colaborador);
+            }
         }
     }
 
@@ -377,10 +394,12 @@ public class Funcoes {
         System.out.println("=== Buscar Colaborador Pelo ID ===");
         System.out.println("Digite o ID do colaborador:");
         Colaborador colaborador = colaboradorDao.findById(sc.nextInt());
-        System.out.println("Colaborador: ");
-        System.out.println(colaborador);
-
-
+        if(colaborador != null) {
+            System.out.println("Colaborador: ");
+            System.out.println(colaborador);
+        }else {
+            System.out.println("Colaborador não existe!!");
+        }
 
     }
 
@@ -417,8 +436,12 @@ public class Funcoes {
 
         System.out.println("\n=== Lista de Ramos =======");
         List<Ramo> list = ramoDao.findAll();
-        for (Ramo d : list) {
-            System.out.println(d);
+        if (list.isEmpty()) {
+            System.out.println("Não foram encontrados Ramos cadastrados.");
+        } else {
+            for (Ramo ramo : list) {
+                System.out.println(ramo);
+            }
         }
 
     }
