@@ -238,7 +238,11 @@ public class Funcoes {
         System.out.println("=== Busca de Empresa por ID =======");
         System.out.println("Informe o id a ser exibido");
         Empresa empresa = empresaDao.findById(sc.nextInt());
-        System.out.println(empresa);
+        if(empresa != null){
+            System.out.println(empresa);
+        }else {
+            System.out.println("Não foram encontrados registros.");
+        }
     }
     public static void findAllEmpresa(){
         EmpresaDao empresaDao = DaoFactory.createEmpresaDao();
