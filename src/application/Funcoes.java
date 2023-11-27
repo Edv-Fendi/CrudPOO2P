@@ -71,8 +71,6 @@ public class Funcoes {
         Scanner sc = new Scanner(System.in);
         PorteDao porteDao = DaoFactory.createPorteDao();
         System.out.println("\n=== INSERÇÃO DE PORTE =======");
-//        System.out.println("Digite o código:");
-//        int cod = Integer.parseInt(sc.next());
         System.out.println("Digite a descrição:");
         sc.nextLine();
         String desc = sc.nextLine();
