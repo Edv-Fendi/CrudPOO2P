@@ -398,10 +398,12 @@ public class Menu extends JFrame {
     }
 
     private void atualizarColaborador() {
+        Funcoes.findAllColaborador();
         Funcoes.updateColaborador();
     }
 
     private void deletarColaborador() {
+        Funcoes.findAllColaborador();
         Funcoes.deleteColaborador();
     }
 
@@ -418,10 +420,12 @@ public class Menu extends JFrame {
     }
 
     private void atualizarPorte() {
+        Funcoes.findAllPorte();
         Funcoes.updatePorte();
     }
 
     private void deletarPorte() {
+        Funcoes.findAllPorte();
         Funcoes.deletePorte();
     }
     private void cadastrarEndereco() {
@@ -437,10 +441,12 @@ public class Menu extends JFrame {
     }
 
     private void atualizarEndereco() {
+        Funcoes.findAllEndereco();
         Funcoes.updateEndereco();
     }
 
     private void deletarEndereco() {
+        Funcoes.findAllEndereco();
         Funcoes.deleteEndereco();
     }
     private void cadastrarRamo() {
@@ -456,17 +462,22 @@ public class Menu extends JFrame {
     }
 
     private void atualizarRamo() {
+        Funcoes.findAllRamo();
         Funcoes.updateRamo();
     }
 
     private void deletarRamo() {
+        Funcoes.findAllRamo();
         Funcoes.deleteRamo();
     }
 
     private void cadastrarEmpresa(){ Funcoes.insertEmpresa();}
     private void exibirTodosEmpresa() { Funcoes.findAllEmpresa();}
     private void exibirEmpresaPeloId(){ Funcoes.findIdEmpresa();}
-    private void atualizarEmpresa(){Funcoes.updateEmpresa();}
-    private void deletarEmpresa(){Funcoes.deleteEmpresa();}
-
+    private void atualizarEmpresa(){
+        Funcoes.findAllEmpresa();
+        Funcoes.updateEmpresa();}
+    private void deletarEmpresa(){
+        Funcoes.findAllEmpresa();
+        Funcoes.deleteEmpresa();}
     }

@@ -299,6 +299,7 @@ public class Funcoes {
         System.out.print("Digite o id da empresa: ");
         int id = sc.nextInt();
         empresaDao.deleteById(id);
+
         System.out.println("Removido com Sucesso!!");
     }
 
